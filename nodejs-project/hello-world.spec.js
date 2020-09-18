@@ -30,7 +30,8 @@ describe('le programme devrait', () => {
   })
 
   it('respecter à la lettre le message demandé', () => {
-    assert.strictEqual(["Hello World"], logged);
+    //assert.strictEqual(logged.join(), "Hello World");
+    expect(logged.join()).to.be("Hello World");
     printMessage(`👌 Nickel ! Ton code valide tout ce qui était demandé !`);
     printMessage(`Tu peux passer à l'exercice suivant.`);
   })
