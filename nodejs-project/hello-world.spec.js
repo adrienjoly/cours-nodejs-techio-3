@@ -12,11 +12,11 @@ it(`le programme s'exécute sans erreur`, () => {
 });
 
 it('le programme affiche le mot "hello"', () => {
-  assert(/hello/i, logged.join());
+  assert(/hello/i.test(logged.join()));
 })
 
 it('le programme affiche le mot "world"', () => {
-  assert(/world/i, logged.join());
+  assert(/world/i.test(logged.join()));
 })
 
 it('le programme respecte à la lettre le message demandé', () => {
