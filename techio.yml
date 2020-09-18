@@ -1,6 +1,6 @@
 title: Découverte de Node.js
 plan:
-- title: Welcome
+- title: Premiers pas
   statement: markdowns/welcome.md
 projects:
   nodejs:

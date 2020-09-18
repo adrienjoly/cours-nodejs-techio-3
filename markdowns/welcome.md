@@ -1,13 +1,20 @@
-# Découverte de Node.js
+# Premiers pas avec Node.js
 
-Cet exercice va vous guider dans l'écriture et l'exécution d'un premier programme Node.js.
+## Objectifs
 
-Le code source de cet exercice est accessible sur [GitHub](https://github.com/adrienjoly/playground-r8m63hre).
+- Écrire et tester un programme JavaScript minimal avec Node.js
+- Développer un serveur Web capable de répondre à une simple requête HTTP GET
+- Exécuter et tester ce serveur en local
 
-# Exercice
+<!-- Exerciseur: [Tech.io](https://tech.io/playgrounds/55085/decouverte-de-node-js). -->
+<!-- Code source: [GitHub](https://github.com/adrienjoly/playground-r8m63hre). -->
 
-L'objectif du code a écrire est de retourner le nombre total d'étoiles passées à la fonction `countAllStars()`.
+## Exercice: Hello World
+
+Écrire un programme JavaScript qui affiche "Hello World" dans la sortie standard. (1 ligne de code)
 
 Modifiez le code ci-dessous puis cliquez sur "Run" pour le tester:
 
-@[Compter les étoiles]({ "stubs": ["universe.js"], "command": "node_modules/mocha/bin/mocha universe.spec.js --reporter list" })
+@[Hello World]({ "stubs": ["hello-world.js"], "command": "node_modules/mocha/bin/mocha hello-world.spec.js --reporter list" })
+
+Une fois que les tests passent, réaliser l'exercice suivant.
