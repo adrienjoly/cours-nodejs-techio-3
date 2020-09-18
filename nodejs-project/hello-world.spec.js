@@ -1,4 +1,5 @@
 ﻿const assert = require('assert');
+const expect = require('expect.js');
 
 const logged = [];
 const actualConsoleLog = console.log;
@@ -12,7 +13,8 @@ it(`le programme s'exécute sans erreur`, () => {
 });
 
 it('le programme affiche le mot "hello"', () => {
-  assert(/hello/i.test(logged.join()));
+  //assert(/hello/i.test(logged.join()));
+  expect(logged.join()).to.match(/hello/i);
 })
 
 it('le programme affiche le mot "world"', () => {
