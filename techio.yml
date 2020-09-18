@@ -5,6 +5,4 @@ plan:
 projects:
   nodejs:
     root: /nodejs-project
-    runner:
-      name: NSeydoux/node-npm-runner
-      version: latest
+    runner: nseydoux/techio-node:1.0.0-node12.10.0
