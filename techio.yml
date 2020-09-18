@@ -1,10 +1,10 @@
-title: Cours Node.js
+title: Découverte de Node.js
 plan:
-- title: Premiers pas
-  statement: énoncés/premiers-pas.md
+- title: Welcome
+  statement: markdowns/welcome.md
 projects:
   nodejs:
-    root: /exercices
+    root: /nodejs-project
     runner:
       name: techio/node-npm-runner
       version: latest
