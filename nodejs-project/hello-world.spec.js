@@ -37,6 +37,6 @@ describe('le programme devrait', () => {
   })
 });
 
-function printMessage(channel, message) {
+function printMessage(message, channel = "Exercice terminé") {
   console.log('\nTECHIO> message --channel "' + channel + '" "' + message + '"');
 }
