@@ -15,6 +15,9 @@
 
 Modifiez le code ci-dessous puis cliquez sur "Run" pour le tester:
 
-@[Hello World]({ "stubs": ["hello-world.js"], "command": "node_modules/mocha/bin/mocha hello-world.spec.js" })
+@[Hello World]({
+  "stubs": ["hello-world.js"],
+  "command": "node_modules/mocha/bin/mocha hello-world.spec.js"
+})
 
 Une fois que les tests passent, réaliser l'exercice suivant.
