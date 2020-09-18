@@ -2,7 +2,7 @@
   "name": "nodejs-project-template",
   "version": "1.0.0",
   "license": "ISC",
-  "dependencies": {
+  "devDependencies": {
     "expect.js": "^0.3.1",
     "mocha": "^6.0.0",
     "mocha-clean": "^1.0.0"
