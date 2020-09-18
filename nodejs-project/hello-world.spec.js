@@ -1,5 +1,5 @@
-﻿const assert = require('assert');
-const expect = require('expect.js');
+﻿const expect = require('expect.js');
+const { printMessage } = require('./common/techio');
 
 const logged = [];
 
@@ -37,6 +37,3 @@ describe('le programme devrait', () => {
   })
 });
 
-function printMessage(message, channel = "Exercice terminé") {
-  console.log('\nTECHIO> message --channel "' + channel + '" "' + message + '"');
-}
