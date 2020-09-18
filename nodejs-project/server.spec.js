@@ -26,5 +26,12 @@ describe('le serveur devrait', () => {
     await fetch('http://localhost:3000/')
   })
 
+  it(`répond "Bonjour !" quand il reçoit une requête HTTP GET à la racine`, async function() {
+    const res = await fetch('http://localhost:3000/')
+    expect(await res.text()).to.be('Bonjour !');
+  })
+
+  // TODO: donner des indices à l'étudiant, en fonction du code qui a été (ou pas) écrit
+
 });
 
