@@ -6,6 +6,8 @@ plan:
   statement: markdowns/2-api.md
 - title: Paramètres `GET`
   statement: markdowns/3-param-get.md
+- title: Envoi de message en `POST`
+  statement: markdowns/4-message-post.md
 projects:
   nodejs:
     root: /nodejs-project
