@@ -40,4 +40,3 @@ describe('le programme devrait', () => {
     printMessage(`Tu peux passer à l'exercice suivant.`);
   })
 });
-

@@ -46,4 +46,3 @@ describe('le serveur devrait', () => {
   // TODO: donner des indices à l'étudiant, en fonction du code qui a été (ou pas) écrit
 
 });
-
