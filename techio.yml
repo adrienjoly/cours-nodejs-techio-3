@@ -1,9 +1,9 @@
 title: Premiers pas avec Node.js
 plan:
-- title: Exercice 1 - Afficher Hello World dans la sortie standard
-  statement: markdowns/welcome.md
-- title: Exercice 2 - Une API simple mais polie
-  statement: markdowns/api.md
+- title: Afficher Hello World dans la sortie standard
+  statement: markdowns/1-bonjour.md
+- title: Une API simple mais polie
+  statement: markdowns/2-api.md
 projects:
   nodejs:
     root: /nodejs-project
