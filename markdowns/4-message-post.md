@@ -24,5 +24,3 @@ Modifiez le code ci-dessous puis cliquez sur "Run" pour le tester:
 <!-- exigence: doit avoir `express` comme seule dépendance externe -->
 
 <!-- indice: utiliser un middleware pour extraire les données au format JSON -->
-
-Une fois que les tests passent, réaliser l'exercice suivant.

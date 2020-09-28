@@ -66,7 +66,6 @@ describe('le serveur devrait', () => {
 
   it('remplir tous les critères demandés', () => {
     printMessage(`👌 Nickel ! Ton code valide tout ce qui était demandé !`);
-    printMessage(`Tu peux passer à l'exercice suivant.`);
   });
   
 });
