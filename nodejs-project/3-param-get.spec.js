@@ -3,7 +3,7 @@ const util = require('util');
 const childProcess = require('child_process');
 const expect = require('expect.js');
 const fetch = require('node-fetch');
-const { printMessage } = require('./common/techio');
+const { printMessage, countLines } = require('./common/techio');
 
 const CODE_FILE = './3-param-get.js';
 
