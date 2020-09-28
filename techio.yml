@@ -3,7 +3,7 @@ plan:
 - title: Afficher Hello World dans la sortie standard
   statement: markdowns/1-bonjour.md
 - title: Une API simple mais polie
-  statement: markdowns/api.md
+  statement: markdowns/2-api.md
 projects:
   nodejs:
     root: /nodejs-project
