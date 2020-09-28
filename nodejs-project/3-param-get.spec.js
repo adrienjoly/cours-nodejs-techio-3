@@ -1,7 +1,11 @@
-﻿const childProcess = require('child_process');
+﻿const fs = require('fs');
+const util = require('util');
+const childProcess = require('child_process');
 const expect = require('expect.js');
 const fetch = require('node-fetch');
 const { printMessage } = require('./common/techio');
+
+const CODE_FILE = './3-param-get.js';
 
 describe('le serveur devrait', () => {
 
@@ -15,7 +19,7 @@ describe('le serveur devrait', () => {
 
   it(`s'exécuter sans erreur`, () => {
     // load and run student code
-    server = childProcess.fork('./3-param-get.js');
+    server = childProcess.fork(CODE_FILE);
   });
 
   it(`accepter une requête HTTP GET à la racine`, async function() {
@@ -42,6 +46,11 @@ describe('le serveur devrait', () => {
       expect(await res.text()).to.be(expected);
     })
   );
+
+  it('être implémenté en moins de 30 lignes de code', async () => {
+    const sourceCode = await util.promisify(fs.readFile)(CODE_FILE, 'utf8')
+    expect(countLines(sourceCode)).to.be.within(1, 30);
+  });
 
   it('remplir tous les critères demandés', () => {
     printMessage(`👌 Nickel ! Ton code valide tout ce qui était demandé !`);
