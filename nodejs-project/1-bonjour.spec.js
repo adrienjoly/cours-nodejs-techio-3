@@ -11,7 +11,7 @@ describe('le programme devrait', () => {
     console.log = function (param) {
       logged.push(param);
     };
-    require('./hello-world.js'); // load and run student code
+    require('./1-bonjour.js'); // load and run student code
     console.log = actualConsoleLog; // restore console
   });
 
