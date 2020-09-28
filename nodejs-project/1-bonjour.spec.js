@@ -1,4 +1,5 @@
-﻿const expect = require('expect.js');
+﻿//const assert = require('assert');
+const expect = require('expect.js');
 const { printMessage } = require('./common/techio');
 
 const logged = [];
@@ -18,6 +19,7 @@ describe('le programme devrait', () => {
   });
 
   it('écrire dans la console', () => {
+    //assert(consoleLogAppelé);
     expect(consoleLogAppelé).to.be(true);
   })
 
