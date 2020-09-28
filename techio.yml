@@ -4,6 +4,8 @@ plan:
   statement: markdowns/1-bonjour.md
 - title: Une API simple mais polie
   statement: markdowns/2-api.md
+- title: Paramètres `GET`
+  statement: markdowns/3-param-get.md
 projects:
   nodejs:
     root: /nodejs-project
