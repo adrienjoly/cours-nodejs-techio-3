@@ -2,6 +2,7 @@
 const { printMessage } = require('./common/techio');
 
 const logged = [];
+let consoleLogAppelé = false;
 
 describe('le programme devrait', () => {
 
@@ -9,6 +10,7 @@ describe('le programme devrait', () => {
     const actualConsoleLog = console.log; // backup console
     // mock console
     console.log = function (param) {
+      consoleLogAppelé = true;
       logged.push(param);
     };
     require('./1-bonjour.js'); // load and run student code
@@ -16,7 +18,7 @@ describe('le programme devrait', () => {
   });
 
   it('écrire dans la console', () => {
-    expect(logged).to.have.length(1)
+    expect(consoleLogAppelé).to.be(true);
   })
 
   it('afficher le mot "hello"', () => {
