@@ -10,7 +10,7 @@ Cours: [adrienjoly.com/cours-nodejs](https://adrienjoly.com/cours-nodejs/)
 
 Modifiez le code ci-dessous puis cliquez sur "Run" pour le tester:
 
-@[Hello World]({
+@[helloworld.js]({
   "stubs": ["1-bonjour.js"],
   "command": "node_modules/mocha/bin/mocha 1-bonjour.spec.js"
 })

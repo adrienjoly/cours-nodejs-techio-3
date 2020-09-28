@@ -17,7 +17,7 @@ describe('le serveur devrait', () => {
   it(`s'exécuter sans erreur`, () => {
     // load and run student code
     // require('./server.js');
-    server = childProcess.fork('./server.js');
+    server = childProcess.fork('./2-api.js');
   });
 
   it(`accepter une requête HTTP GET à la racine`, async function() {
@@ -29,6 +29,8 @@ describe('le serveur devrait', () => {
   it(`répond "Bonjour !" quand il reçoit une requête HTTP GET à la racine`, async function() {
     const res = await fetch('http://localhost:3000/')
     expect(await res.text()).to.be('Bonjour !');
+    printMessage(`👌 Nickel ! Ton code valide tout ce qui était demandé !`);
+    printMessage(`Tu peux passer à l'exercice suivant.`);
   })
 
   // TODO: donner des indices à l'étudiant, en fonction du code qui a été (ou pas) écrit

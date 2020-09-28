@@ -10,9 +10,9 @@ Cours: [adrienjoly.com/cours-nodejs](https://adrienjoly.com/cours-nodejs/)
 
 Modifiez le code ci-dessous puis cliquez sur "Run" pour le tester:
 
-@[Hello World]({
-  "stubs": ["server.js"],
-  "command": "node_modules/mocha/bin/mocha server.spec.js"
+@[server.js]({
+  "stubs": ["2-api.js"],
+  "command": "node_modules/mocha/bin/mocha 2-api.spec.js"
 })
 
 Une fois que les tests passent, réaliser l'exercice suivant.
