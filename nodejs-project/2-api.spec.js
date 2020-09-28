@@ -26,7 +26,7 @@ describe('le serveur devrait', () => {
     await fetch('http://localhost:3000/')
   })
 
-  it(`répond "Bonjour !" quand il reçoit une requête HTTP GET à la racine`, async function() {
+  it(`répondre "Bonjour !" quand il reçoit une requête HTTP GET à la racine`, async function() {
     const res = await fetch('http://localhost:3000/')
     expect(await res.text()).to.be('Bonjour !');
     printMessage(`👌 Nickel ! Ton code valide tout ce qui était demandé !`);
