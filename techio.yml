@@ -1,13 +1,7 @@
-title: Premiers pas avec Node.js
+title: Node.js – Partie 2
 plan:
 - title: Afficher Hello World dans la sortie standard
   statement: markdowns/1-bonjour.md
-- title: Une API simple mais polie
-  statement: markdowns/2-api.md
-- title: Paramètres `GET`
-  statement: markdowns/3-param-get.md
-- title: Envoi de message en `POST`
-  statement: markdowns/4-message-post.md
 projects:
   nodejs:
     root: /nodejs-project
