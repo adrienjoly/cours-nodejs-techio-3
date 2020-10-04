@@ -13,7 +13,7 @@ describe('le programme devrait', () => {
   it(`s'exécuter sans erreur`, () => new Promise((resolve, reject) => {
     const timeout = setTimeout(() => reject('timeout'), 1000);
     // load and run student code
-    process = childProcess.fork(CODE_FILE, {
+    process = childProcess.fork(CODE_FILE, { // warning: causes "TypeError: Cannot read property 'SHOW_ABSOLUTE_PATHS' of undefined" when using mocha-clean
       stdio: [0, 'pipe', 2, 'ipc']
     });
     process.stdout.on('data', (data) => {
