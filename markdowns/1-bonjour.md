@@ -1,5 +1,3 @@
-yo
-
 Cours: [adrienjoly.com/cours-nodejs](https://adrienjoly.com/cours-nodejs/)
 
 <!-- Code source: [GitHub](https://github.com/adrienjoly/playground-r8m63hre). -->
