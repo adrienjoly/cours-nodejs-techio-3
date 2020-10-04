@@ -1,7 +1,7 @@
 title: Node.js – Partie 2
 plan:
-- title: Afficher Hello World dans la sortie standard
-  statement: markdowns/1-bonjour.md
+- title: Envoi de requête à une API externe
+  statement: markdowns/1-api-req.md
 projects:
   nodejs:
     root: /nodejs-project
