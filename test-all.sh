@@ -9,3 +9,4 @@ CODE_FILE="3-promise.solution.js" node_modules/mocha/bin/mocha 3-promise.spec.js
 CODE_FILE="4-promise-error.solution.js" node_modules/mocha/bin/mocha 4-promise-error.spec.js
 CODE_FILE="5-await.solution.js" node_modules/mocha/bin/mocha 5-await.spec.js
 CODE_FILE="6-await-error.solution.js" node_modules/mocha/bin/mocha 6-await-error.spec.js
+CODE_FILE="7-complete.solution.js" node_modules/mocha/bin/mocha 7-complete.spec.js

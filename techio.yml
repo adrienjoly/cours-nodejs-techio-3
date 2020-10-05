@@ -12,6 +12,8 @@ plan:
   statement: markdowns/5-await.md
 - title: Gestion d'erreurs de `await`
   statement: markdowns/6-await-error.md
+- title: Requête complète
+  statement: markdowns/7-complete.md
 projects:
   nodejs:
     root: /nodejs-project
