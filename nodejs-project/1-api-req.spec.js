@@ -14,6 +14,7 @@ describe("le programme devrait", () => {
   });
 
   it("écrire dans la console", () => {
+    console.log(process.env);
     expect(program.getLogs().length > 0).to.be(true);
   });
 

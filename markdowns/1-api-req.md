@@ -10,7 +10,7 @@ Modifiez le code ci-dessous puis cliquez sur "Run" pour le tester:
 
 @[https-get.js]({
   "stubs": ["1-api-req.js"],
-  "command": "node_modules/mocha/bin/mocha 1-api-req.spec.js"
+  "command": "CODE_FILE='./1-api-req.js' node_modules/mocha/bin/mocha 1-api-req.spec.js"
 })
 
 Une fois que les tests passent, réalisez l'exercice suivant.
