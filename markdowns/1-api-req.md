@@ -8,7 +8,7 @@ Cours: [adrienjoly.com/cours-nodejs](https://adrienjoly.com/cours-nodejs/) (à c
 
 Modifiez le code ci-dessous puis cliquez sur "Run" pour le tester:
 
-@[helloworld.js]({
+@[https-get.js]({
   "stubs": ["1-api-req.js"],
   "command": "node_modules/mocha/bin/mocha 1-api-req.spec.js"
 })

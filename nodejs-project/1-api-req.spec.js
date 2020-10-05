@@ -6,7 +6,7 @@ const { printMessage } = require("./common/techio");
 const logged = [];
 let consoleLogAppelé = false;
 
-const CODE_FILE = "./1-api-req.js";
+const CODE_FILE = process.env.CODE_FILE || "./1-api-req.js";
 
 describe("le programme devrait", () => {
   it(`s'exécuter sans erreur et se terminer en 5 secondes`, () =>
