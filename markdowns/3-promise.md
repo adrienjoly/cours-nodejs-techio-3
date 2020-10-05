@@ -9,8 +9,8 @@ Cours: [adrienjoly.com/cours-nodejs](https://adrienjoly.com/cours-nodejs/) (à c
 Modifiez le code ci-dessous puis cliquez sur "Run" pour le tester:
 
 @[fetch-promise.js]({
-  "stubs": ["2-promise.js"],
-  "command": "node_modules/mocha/bin/mocha 2-promise.spec.js"
+  "stubs": ["3-promise.js"],
+  "command": "node_modules/mocha/bin/mocha 3-promise.spec.js"
 })
 
 Une fois que les tests passent, réalisez l'exercice suivant.
