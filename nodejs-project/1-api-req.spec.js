@@ -40,6 +40,10 @@ describe("le programme devrait", () => {
     expect(consoleLogAppelé).to.be(true);
   });
 
+  it("n'inclure que du JSON pur dans la sortie standard", () => {
+    expect(logged.join("").trim()).to.match(/^\{/);
+  });
+
   it("afficher la réponse au format JSON, telle quelle", () => {
     JSON.parse(logged.join("").trim());
   });
