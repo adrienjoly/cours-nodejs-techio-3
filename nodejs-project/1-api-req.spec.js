@@ -2,7 +2,7 @@
 const expect = require("expect.js");
 const { printMessage, getStubFile, runStudentCode } = require("./common/techio");
 
-const EXPECTED_PARIS = require("./common/paris.snapshot.js")
+const EXPECTED_RESPONSE = require("./common/expected-response.js")
 
 const CODE_FILE = process.env.CODE_FILE || getStubFile(__filename); // "1-api-req.js"
 
@@ -28,7 +28,7 @@ describe("le programme devrait", () => {
   it("afficher la réponse de l'API", () => {
     const json = JSON.parse(program.getLogs().join("").trim());
     //assert(/hello/i.test(logged.join()));
-    expect(json).to.eql(EXPECTED_PARIS);
+    expect(json).to.eql(EXPECTED_RESPONSE);
     printMessage(`👌 Nickel ! Ton code valide tout ce qui était demandé !`);
     printMessage(`Tu peux passer à l'exercice suivant.`);
   });

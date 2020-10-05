@@ -3,7 +3,7 @@ Cours: [adrienjoly.com/cours-nodejs](https://adrienjoly.com/cours-nodejs/) (à c
 <!-- Code source: [GitHub](https://github.com/adrienjoly/cours-nodejs-techio-2). -->
 
 Écrivez un programme Node.js qui:
-- récupère les coordonnées géographiques de la ville de Paris au format JSON, en interrogeant l'API [geocode.xyz](https://geocode.xyz/api) à l'aide de la bibliothèque npm [`node-fetch`](https://www.npmjs.com/package/node-fetch);
+- récupère les métadonnées au format JSON à propos de la première photo listée sur [jsonplaceholder](https://jsonplaceholder.typicode.com/), en interrogeant [leur API](https://jsonplaceholder.typicode.com/api) à l'aide de la bibliothèque npm [`node-fetch`](https://www.npmjs.com/package/node-fetch);
 - affiche la réponse donnée par l'API à cette requête, dans la sortie standard, telle quelle.
 
 Modifiez le code ci-dessous puis cliquez sur "Run" pour le tester:
