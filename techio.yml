@@ -5,7 +5,7 @@ plan:
 - title: Gestion d'erreurs de callback
   statement: markdowns/2-callback-error.md
 - title: Requête à l'aide de `Promise`
-  statement: markdowns/2-promise.md
+  statement: markdowns/3-promise.md
 projects:
   nodejs:
     root: /nodejs-project
