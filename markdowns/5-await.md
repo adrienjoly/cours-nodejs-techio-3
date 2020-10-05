@@ -1,4 +1,4 @@
-Cours: [adrienjoly.com/cours-nodejs](https://adrienjoly.com/cours-nodejs/) (à consulter pour voir l'énoncé en entier)
+Cours: [adrienjoly.com/cours-nodejs](https://adrienjoly.com/cours-nodejs/02-async) (à consulter pour voir l'énoncé en entier)
 
 <!-- Code source: [GitHub](https://github.com/adrienjoly/cours-nodejs-techio-2). -->
 
