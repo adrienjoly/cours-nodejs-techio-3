@@ -1,7 +1,7 @@
 ﻿const expect = require("expect.js");
-const { printMessage, runStudentCode } = require("./common/techio");
+const { printMessage, getStubFile, runStudentCode } = require("./common/techio");
 
-const CODE_FILE = process.env.CODE_FILE || "./1-api-req.js";
+const CODE_FILE = process.env.CODE_FILE || getStubFile(__filename);
 
 let program;
 

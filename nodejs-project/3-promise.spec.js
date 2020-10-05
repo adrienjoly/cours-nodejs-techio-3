@@ -1,9 +1,9 @@
 ﻿const expect = require("expect.js");
-const { printMessage, runStudentCode } = require("./common/techio");
+const { printMessage, getStubFile, runStudentCode } = require("./common/techio");
 
 const EXPECTED_PARIS = require("./common/paris.snapshot.js")
 
-const CODE_FILE = process.env.CODE_FILE || "./2-promise.js";
+const CODE_FILE = process.env.CODE_FILE || getStubFile(__filename);
 
 let program;
 
