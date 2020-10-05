@@ -2,6 +2,8 @@
 const expect = require("expect.js");
 const { printMessage } = require("./common/techio");
 
+const EXPECTED_PARIS = require("./common/paris.snapshot.js")
+
 const CODE_FILE = process.env.CODE_FILE || "./2-promise.js";
 
 const logged = [];
@@ -47,30 +49,7 @@ describe("le programme devrait", () => {
 
   it("afficher la réponse de l'API", () => {
     const json = JSON.parse(logged.join("").trim());
-    expect(json).to.eql({
-      standard: {
-        addresst: {},
-        city: "Paris",
-        prov: "FR",
-        countryname: "France",
-        postal: {},
-        confidence: "0.3",
-      },
-      longt: "2.34280",
-      alt: {
-        loc: {
-          longt: "2.34506",
-          prov: "FR",
-          city: "Paris",
-          countryname: "France",
-          postal: "75018",
-          region: {},
-          latt: "48.89090",
-        },
-      },
-      elevation: {},
-      latt: "48.85756",
-    });
+    expect(json).to.eql(EXPECTED_PARIS);
     printMessage(`👌 Nickel ! Ton code valide tout ce qui était demandé !`);
     printMessage(`Tu peux passer à l'exercice suivant.`);
   });
