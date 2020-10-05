@@ -1,3 +1,4 @@
+const fs = require('fs');
 const childProcess = require("child_process");
 
 exports.printMessage = (message, channel = "Exercice terminé") =>
@@ -6,6 +7,10 @@ exports.printMessage = (message, channel = "Exercice terminé") =>
 exports.getStubFile = (testFile) => './' + testFile.split('/').pop().replace('.spec.js', '.js');
 
 exports.countLines = (sourceCode) => sourceCode.split(/[\r\n]+/).length;
+
+exports.getStudentCode = (codeFile) => new Promise((resolve, reject) => {
+  fs.readFile(codeFile, 'utf8', (err, data) => err ? reject(err) : resolve(data));
+});
 
 exports.runStudentCode = (codeFile) => new Promise((resolve, reject) => {
   const logged = [];
@@ -33,4 +38,4 @@ exports.runStudentCode = (codeFile) => new Promise((resolve, reject) => {
       reject(`child process exited with code ${code}`);
     }
   });
-})
+});
