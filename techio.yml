@@ -10,6 +10,8 @@ plan:
   statement: markdowns/4-promise-error.md
 - title: Requête à l'aide de `await`
   statement: markdowns/5-await.md
+- title: Gestion d'erreurs de `await`
+  statement: markdowns/6-await-error.md
 projects:
   nodejs:
     root: /nodejs-project
