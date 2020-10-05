@@ -1,5 +1,4 @@
-﻿const childProcess = require("child_process");
-//const assert = require('assert');
+﻿//const assert = require('assert');
 const expect = require("expect.js");
 const { printMessage, runStudentCode } = require("./common/techio");
 

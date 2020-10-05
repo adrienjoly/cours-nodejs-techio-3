@@ -1,8 +1,5 @@
-﻿const childProcess = require("child_process");
-const expect = require("expect.js");
+﻿const expect = require("expect.js");
 const { printMessage, runStudentCode } = require("./common/techio");
-
-const EXPECTED_PARIS = require("./common/paris.snapshot.js")
 
 const CODE_FILE = process.env.CODE_FILE || "./1-api-req.js";
 
