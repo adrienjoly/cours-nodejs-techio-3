@@ -1,10 +1,10 @@
 ﻿//const assert = require('assert');
 const expect = require("expect.js");
-const { printMessage, runStudentCode } = require("./common/techio");
+const { printMessage, getStubFile, runStudentCode } = require("./common/techio");
 
 const EXPECTED_PARIS = require("./common/paris.snapshot.js")
 
-const CODE_FILE = process.env.CODE_FILE || "1-api-req.js";
+const CODE_FILE = process.env.CODE_FILE || getStubFile(__filename); // "1-api-req.js"
 
 let program;
 
@@ -14,7 +14,6 @@ describe("le programme devrait", () => {
   });
 
   it("écrire dans la console", () => {
-    console.log(process.env);
     expect(program.getLogs().length > 0).to.be(true);
   });
 

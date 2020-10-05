@@ -3,6 +3,8 @@ const childProcess = require("child_process");
 exports.printMessage = (message, channel = "Exercice terminé") =>
   console.log('\nTECHIO> message --channel "' + channel + '" "' + message + '"');
 
+exports.getStubFile = (testFile) => './' + testFile.split('/').pop().replace('.spec.js', '.js');
+
 exports.countLines = (sourceCode) => sourceCode.split(/[\r\n]+/).length;
 
 exports.runStudentCode = (codeFile) => new Promise((resolve, reject) => {
