@@ -8,8 +8,10 @@ exports.getStubFile = (testFile) => './' + testFile.split('/').pop().replace('.s
 
 exports.countLines = (sourceCode) => sourceCode.split(/[\r\n]+/).length;
 
+const removeComments = str => str.replace(/\/\*[\s\S]*?\*\/|([^:]|^)\/\/.*$/gm, '');
+
 exports.getStudentCode = (codeFile) => new Promise((resolve, reject) => {
-  fs.readFile(codeFile, 'utf8', (err, data) => err ? reject(err) : resolve(data));
+  fs.readFile(codeFile, 'utf8', (err, data) => err ? reject(err) : resolve(removeComments(data)));
 });
 
 exports.runStudentCode = (codeFile, { args } = {}) => new Promise((resolve, reject) => {
