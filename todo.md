@@ -1,0 +1,1 @@
+- [ ] faire fonctionner les tests en CI (github actions) => donner accès aux fichiers chiffrés (https://stackoverflow.com/a/61748039/592254)
