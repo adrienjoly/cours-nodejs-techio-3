@@ -1,10 +1,8 @@
 title: Node.js – Partie 3
 plan:
-- title: Welcome
-  statement: markdowns/welcome.md
+- title: Requête complète
+  statement: markdowns/7-complete.md
 projects:
   nodejs:
     root: /nodejs-project
-    runner:
-      name: techio/node-npm-runner
-      version: latest
+    runner: nseydoux/techio-node:1.0.0-node12.10.0
