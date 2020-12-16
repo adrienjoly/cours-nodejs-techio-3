@@ -7,12 +7,13 @@ const {
   getStudentCode,
   runStudentCode,
   deleteFiles,
+  filterNodesRecur,
 } = require("./common/techio");
 
 const CODE_FILE = process.env.CODE_FILE || getStubFile(__filename);
 
 const trouverDefFonction = (nom, code) => esprima.parseScript(code, { range: true }).body.find(
-  ({ type, id, params }) => type === "FunctionDeclaration" && id.name === nom && params.length === 2
+  ({ type, id }) => type === "FunctionDeclaration" && id.name === nom
 )
 
 describe("le programme devrait", () => {
@@ -101,32 +102,21 @@ describe("le programme devrait", () => {
   
   it(`définir la fonction lireFichier(nomFichier, callback)`, async () => {
     const définitionDeFonction = trouverDefFonction("lireFichier", await getStudentCode(CODE_FILE));
-    // FunctionDeclaration {
-    //   type: 'FunctionDeclaration',
-    //   id: Identifier { type: 'Identifier', name: 'lireFichier' },
-    //   params: [
-    //     Identifier { type: 'Identifier', name: 'nomFichier' },
-    //     Identifier { type: 'Identifier', name: 'callback' }
-    //   ],
-    //   body: BlockStatement { type: 'BlockStatement', body: [] },
-    //   generator: false,
-    //   expression: false,
-    //   async: false
-    // }
     expect(définitionDeFonction).to.be.ok();
     expect(définitionDeFonction.params).to.have.length(2);
   });
 
   it(`appeler readFile() depuis la fonction lireFichier()`, async () => {
     const définitionDeFonction = trouverDefFonction("lireFichier", await getStudentCode(CODE_FILE));
-    const appelReadFile = définitionDeFonction.body.body.find(
-      ({ type, expression }) =>
-        type === "ExpressionStatement" &&
-        expression.type === "CallExpression" &&
-        expression.callee.object.name === "fs" &&
-        expression.callee.property.name === "readFile"
+    const appelsReadFile = filterNodesRecur(définitionDeFonction, ({ type, callee }) =>
+      type === "CallExpression" &&
+      callee &&
+      callee.object &&
+      callee.object.name === "fs" &&
+      callee.property &&
+      callee.property.name === "readFile"
     );
-    expect(appelReadFile).to.be.ok();
+    expect(appelsReadFile).to.have.length(1);
   });
   
   it(`appeler readFile() seulement depuis la fonction lireFichier()`, async () => {

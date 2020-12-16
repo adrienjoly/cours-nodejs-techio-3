@@ -53,3 +53,28 @@ exports.runStudentCode = (codeFile, { args, tolerateFailure } = {}) => new Promi
 exports.deleteFiles = (fileRegex) => fs.readdirSync(".")
   .filter(f => fileRegex.test(f))
   .map(f => fs.unlinkSync(f));
+
+// from https://sevinf.github.io/blog/2012/09/29/esprima-tutorial/
+function traverse(node, func) {
+  func(node);
+  for (var key in node) {
+    if (node.hasOwnProperty(key)) {
+      var child = node[key];
+      if (typeof child === "object" && child !== null) {
+        if (Array.isArray(child)) {
+          child.forEach(function (node) {
+            traverse(node, func);
+          });
+        } else {
+          traverse(child, func);
+        }
+      }
+    }
+  }
+}
+
+exports.filterNodesRecur = (node, matchFct) => {
+  const matchingNodes = [];
+  traverse(node, (subNode) => matchFct(subNode) ? matchingNodes.push(subNode) : null);
+  return matchingNodes;
+};
