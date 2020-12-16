@@ -8,7 +8,7 @@
     "mocha": "^6.0.0"
   },
   "mocha": {
-    "bail": true
+    "bail": false
   },
   "private": true,
   "dependencies": {
