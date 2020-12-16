@@ -10,9 +10,9 @@ const {
 const CODE_FILE = process.env.CODE_FILE || getStubFile(__filename);
 
 describe("le programme devrait", () => {
-  it(`appeler la fonction readFileSync()`, async () => {
+  it(`appeler la fonction readFile()`, async () => {
     const studentCode = await getStudentCode(CODE_FILE);
-    expect(studentCode).to.match(/readFileSync\(/);
+    expect(studentCode).to.match(/readFile\(/);
   });
 
   it(`afficher le contenu d'un fichier ne contenant que des minuscules`, async () => {
@@ -45,10 +45,24 @@ describe("le programme devrait", () => {
     expect(contenuDestination).to.eql(contenuAttendu);
   });
 
-  it(`appeler la fonction writeFileSync()`, async () => {
+  it(`appeler la fonction writeFile()`, async () => {
     const studentCode = await getStudentCode(CODE_FILE);
-    expect(studentCode).to.match(/writeFileSync\(/);
+    expect(studentCode).to.match(/writeFile\(/);
   });
+
+  /*
+  it(`afficher l'erreur dans la sortie d'erreurs, en cas d'erreur de lecture de fichier`, async () => {
+    const fichierInexistant = "fichier-inexistant.txt";
+    const program = await runStudentCode(CODE_FILE, { args: [fichierInexistant] });
+    console.log('coucou')
+    const error = program.getErrors().join("").trim();
+    console.log({error})
+    expect(error).to.match(/Error/);
+    expect(error).to.match(/ENOENT/);
+    expect(error).to.match(/no such file or directory/);
+    expect(error).to.match(fichierInexistant);
+  });
+  */
 
   it(`respecter toutes les consignes de l'énoncé`, () => {
     printMessage(`👌 Nickel ! Ton code valide tout ce qui était demandé !`);

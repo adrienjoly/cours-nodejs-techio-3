@@ -2,6 +2,8 @@ title: Node.js – Partie 3
 plan:
 - title: Lecture et écriture synchrone
   statement: markdowns/1-fs-base.md
+- title: Utilisation d'appels asynchrones
+  statement: markdowns/2-fs-async.md
 projects:
   nodejs:
     root: /nodejs-project
