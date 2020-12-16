@@ -8,6 +8,8 @@ plan:
   statement: markdowns/3-fs-interm.md
 - title: Utilisation de Promesses
   statement: markdowns/4-fs-promise.md
+- title: Utilisation de `async` et `await`
+  statement: markdowns/5-fs-await.md
 projects:
   nodejs:
     root: /nodejs-project
