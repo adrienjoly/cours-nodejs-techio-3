@@ -5,11 +5,19 @@ const {
   getStubFile,
   getStudentCode,
   runStudentCode,
+  deleteFiles,
 } = require("./common/techio");
 
 const CODE_FILE = process.env.CODE_FILE || getStubFile(__filename);
 
 describe("le programme devrait", () => {
+
+  afterEach(() => {
+    // clean up txt files created during execution of tests
+    deleteFiles(/\.txt$/);
+    deleteFiles(/\.tmp$/);
+  });
+
   it(`appeler la fonction readFile()`, async () => {
     const studentCode = await getStudentCode(CODE_FILE);
     expect(studentCode).to.match(/readFile\(/);
@@ -50,13 +58,26 @@ describe("le programme devrait", () => {
     expect(studentCode).to.match(/writeFile\(/);
   });
 
+  it(`afficher l'erreur dans la sortie d'erreurs, en cas d'erreur d'écriture de fichier`, async () => {
+    await fs.promises.writeFile("minuscules.txt", "bonjour le monde !");
+    const programmeAvecFichierInvalide = "programmeAvecFichierInvalide.js.tmp";
+    const codeAvecFichierInvalide = (await getStudentCode(CODE_FILE)).replace(/résultat\.txt/g, '');
+    await fs.promises.writeFile(programmeAvecFichierInvalide, codeAvecFichierInvalide);
+    const execution = await runStudentCode(programmeAvecFichierInvalide, {
+      args: [ "minuscules.txt" ],
+      tolerateFailure: true, // so runStudentCode() does not rejects if "child process exited with code 1"
+    });
+    const error = execution.getErrors().join("").trim();
+    expect(error).to.match(/Error/);
+    expect(error).to.match(/ENOENT/);
+    expect(error).to.match(/no such file or directory/);
+    expect(execution.getExitCode()).to.eql(0);
+  });
   /*
   it(`afficher l'erreur dans la sortie d'erreurs, en cas d'erreur de lecture de fichier`, async () => {
     const fichierInexistant = "fichier-inexistant.txt";
-    const program = await runStudentCode(CODE_FILE, { args: [fichierInexistant] });
-    console.log('coucou')
-    const error = program.getErrors().join("").trim();
-    console.log({error})
+    const execution = await runStudentCode(CODE_FILE, { args: [fichierInexistant] });
+    const error = execution.getErrors().join("").trim();
     expect(error).to.match(/Error/);
     expect(error).to.match(/ENOENT/);
     expect(error).to.match(/no such file or directory/);

@@ -14,7 +14,7 @@ exports.getStudentCode = (codeFile) => new Promise((resolve, reject) => {
   fs.readFile(codeFile, 'utf8', (err, data) => err ? reject(err) : resolve(removeComments(data)));
 });
 
-exports.runStudentCode = (codeFile, { args } = {}) => new Promise((resolve, reject) => {
+exports.runStudentCode = (codeFile, { args, tolerateFailure } = {}) => new Promise((resolve, reject) => {
   const logs = [];
   const errors = [];
   const timeout = setTimeout(() => reject("timeout"), 5000);
@@ -38,13 +38,18 @@ exports.runStudentCode = (codeFile, { args } = {}) => new Promise((resolve, reje
   });
   process.on("close", (code) => {
     clearTimeout(timeout);
-    if (code === 0) {
+    if (code === 0 || tolerateFailure) {
       resolve({
         getLogs: () => logs,
         getErrors: () => errors,
+        getExitCode: () => code,
       });
     } else {
       reject(`child process exited with code ${code}`);
     }
   });
 });
+
+exports.deleteFiles = (fileRegex) => fs.readdirSync(".")
+  .filter(f => fileRegex.test(f))
+  .map(f => fs.unlinkSync(f));
