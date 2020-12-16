@@ -71,19 +71,29 @@ describe("le programme devrait", () => {
     expect(error).to.match(/Error/);
     expect(error).to.match(/ENOENT/);
     expect(error).to.match(/no such file or directory/);
-    expect(execution.getExitCode()).to.eql(0);
   });
-  /*
+  
   it(`afficher l'erreur dans la sortie d'erreurs, en cas d'erreur de lecture de fichier`, async () => {
     const fichierInexistant = "fichier-inexistant.txt";
-    const execution = await runStudentCode(CODE_FILE, { args: [fichierInexistant] });
+    const execution = await runStudentCode(CODE_FILE, {
+      args: [fichierInexistant],
+      tolerateFailure: true, // so runStudentCode() does not rejects if "child process exited with code 1"
+    });
     const error = execution.getErrors().join("").trim();
     expect(error).to.match(/Error/);
     expect(error).to.match(/ENOENT/);
     expect(error).to.match(/no such file or directory/);
-    expect(error).to.match(fichierInexistant);
+    expect(error).to.match(new RegExp(fichierInexistant));
   });
-  */
+  
+  it(`interrompre l'exécution du programme, en cas d'erreur de lecture de fichier`, async () => {
+    const fichierInexistant = "fichier-inexistant.txt";
+    const execution = await runStudentCode(CODE_FILE, {
+      args: [fichierInexistant],
+      tolerateFailure: true, // so runStudentCode() does not rejects if "child process exited with code 1"
+    });
+    expect(execution.getExitCode()).to.eql(0);
+  });
 
   it(`respecter toutes les consignes de l'énoncé`, () => {
     printMessage(`👌 Nickel ! Ton code valide tout ce qui était demandé !`);
