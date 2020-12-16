@@ -4,6 +4,8 @@ plan:
   statement: markdowns/1-fs-base.md
 - title: Utilisation d'appels asynchrones
   statement: markdowns/2-fs-async.md
+- title: Création d'une fonction intermédiaire avec _callback_
+  statement: markdowns/3-fs-interm.md
 projects:
   nodejs:
     root: /nodejs-project

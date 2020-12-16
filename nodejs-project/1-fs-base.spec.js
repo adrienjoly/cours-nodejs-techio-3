@@ -52,6 +52,6 @@ describe("le programme devrait", () => {
 
   it(`respecter toutes les consignes de l'énoncé`, () => {
     printMessage(`👌 Nickel ! Ton code valide tout ce qui était demandé !`);
-    printMessage(`Tu peux passer à l'exercice suivant.`);
+    printMessage(`Peaufine ton code pour le rendre plus intelligible avant de passer à l'exercice suivant.`);
   })
 });

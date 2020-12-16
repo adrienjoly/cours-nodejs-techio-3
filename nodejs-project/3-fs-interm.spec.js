@@ -1,4 +1,5 @@
 ﻿const fs = require("fs");
+const esprima = require("esprima"); // ecmascript parser
 const expect = require("expect.js");
 const {
   printMessage,
@@ -10,6 +11,10 @@ const {
 
 const CODE_FILE = process.env.CODE_FILE || getStubFile(__filename);
 
+const trouverDefFonction = (nom, code) => esprima.parseScript(code, { range: true }).body.find(
+  ({ type, id, params }) => type === "FunctionDeclaration" && id.name === nom && params.length === 2
+)
+
 describe("le programme devrait", () => {
 
   afterEach(() => {
@@ -18,11 +23,8 @@ describe("le programme devrait", () => {
     deleteFiles(/\.tmp$/);
   });
 
-  it(`appeler la fonction readFile()`, async () => {
-    const studentCode = await getStudentCode(CODE_FILE);
-    expect(studentCode).to.match(/readFile\(/);
-  });
-
+  // exigences des exercices précédents
+  
   it(`afficher le contenu d'un fichier ne contenant que des minuscules`, async () => {
     const contenuAttendu = "bonjour le monde !";
     const fichierSource = "minuscules.txt";
@@ -95,8 +97,66 @@ describe("le programme devrait", () => {
     expect(execution.getExitCode()).to.eql(0);
   });
 
+  // exigences apportées dans l'exercice 3
+  
+  it(`définir la fonction lireFichier(nomFichier, callback)`, async () => {
+    const définitionDeFonction = trouverDefFonction("lireFichier", await getStudentCode(CODE_FILE));
+    // FunctionDeclaration {
+    //   type: 'FunctionDeclaration',
+    //   id: Identifier { type: 'Identifier', name: 'lireFichier' },
+    //   params: [
+    //     Identifier { type: 'Identifier', name: 'nomFichier' },
+    //     Identifier { type: 'Identifier', name: 'callback' }
+    //   ],
+    //   body: BlockStatement { type: 'BlockStatement', body: [] },
+    //   generator: false,
+    //   expression: false,
+    //   async: false
+    // }
+    expect(définitionDeFonction).to.be.ok();
+    expect(définitionDeFonction.params).to.have.length(2);
+  });
+
+  it(`appeler readFile() depuis la fonction lireFichier()`, async () => {
+    const définitionDeFonction = trouverDefFonction("lireFichier", await getStudentCode(CODE_FILE));
+    const appelReadFile = définitionDeFonction.body.body.find(
+      ({ type, expression }) =>
+        type === "ExpressionStatement" &&
+        expression.type === "CallExpression" &&
+        expression.callee.object.name === "fs" &&
+        expression.callee.property.name === "readFile"
+    );
+    expect(appelReadFile).to.be.ok();
+  });
+  
+  it(`appeler readFile() seulement depuis la fonction lireFichier()`, async () => {
+    const nbMatches = ((await getStudentCode(CODE_FILE)).match(/readFile\(/g) || []).length;
+    expect(nbMatches).to.be(1);
+  });
+
+  it(`transformer le contenu en dehors de la fonction "lireFichier()"`, async () => {
+    const studentCode = await getStudentCode(CODE_FILE);
+    const définitionDeFonction = trouverDefFonction("lireFichier", studentCode);
+    const [ start, end ] = définitionDeFonction.range;
+    const studentCodeWithoutFunction = studentCode.substr(0, start) + studentCode.substr(end);
+    expect(studentCodeWithoutFunction).to.contain("toLowerCase(");
+    const functionImpl = studentCode.substring(...définitionDeFonction.range)
+    expect(functionImpl).not.to.contain("toLowerCase(");
+  });
+
+  it(`écrire le fichier "résultat.txt" en dehors de la fonction "lireFichier()"`, async () => {
+    const studentCode = await getStudentCode(CODE_FILE);
+    const définitionDeFonction = trouverDefFonction("lireFichier", studentCode);
+    const [ start, end ] = définitionDeFonction.range;
+    const studentCodeWithoutFunction = studentCode.substr(0, start) + studentCode.substr(end);
+    expect(studentCodeWithoutFunction).to.contain("writeFile(");
+    const functionImpl = studentCode.substring(...définitionDeFonction.range)
+    expect(functionImpl).not.to.contain("writeFile(");
+  });
+  
   it(`respecter toutes les consignes de l'énoncé`, () => {
     printMessage(`👌 Nickel ! Ton code valide tout ce qui était demandé !`);
     printMessage(`Peaufine ton code pour le rendre plus intelligible avant de passer à l'exercice suivant.`);
   })
+
 });

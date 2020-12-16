@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "license": "ISC",
   "devDependencies": {
+    "esprima": "^4.0.1",
     "expect.js": "^0.3.1",
     "mocha": "^6.0.0"
   },
