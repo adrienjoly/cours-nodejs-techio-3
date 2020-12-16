@@ -1,7 +1,7 @@
 title: Node.js – Partie 3
 plan:
-- title: Requête complète
-  statement: markdowns/7-complete.md
+- title: Lecture et écriture synchrone
+  statement: markdowns/1-fs-base.md
 projects:
   nodejs:
     root: /nodejs-project

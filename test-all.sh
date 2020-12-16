@@ -3,4 +3,4 @@
 set -e # stop script on any non-zero exit code
 
 cd nodejs-project
-CODE_FILE="7-complete.solution.js" node_modules/mocha/bin/mocha 7-complete.spec.js
+CODE_FILE="1-fs-base.solution.js" node_modules/mocha/bin/mocha 1-fs-base.spec.js
