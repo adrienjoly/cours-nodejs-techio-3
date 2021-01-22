@@ -40,14 +40,18 @@ exports.runStudentCode = (codeFile, { args, tolerateFailure } = {}) => new Promi
       .toString()
       .split(/[\r\n]+/g)
       .forEach((str) => logs.push(str));
-    console.log(`    ℹ️ sortie standard du programme: ${data}`);
+    if (showStdOutputs) {
+      console.log(`    ℹ️  sortie standard du programme: ${data}`);
+    }
   });
   process.stderr.on("data", (data) => {
     data
       .toString()
       .split(/[\r\n]+/g)
       .forEach((str) => errors.push(str));
-    console.log(`    ℹ️ sortie d'erreurs du programme: ${data}`);
+    if (showStdOutputs) {
+      console.log(`    ℹ️  sortie d'erreurs du programme: ${data}`);
+    }
   });
   process.on("close", (code) => {
     clearTimeout(timeout);

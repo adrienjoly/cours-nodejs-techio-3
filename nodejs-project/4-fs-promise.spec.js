@@ -1,4 +1,4 @@
-﻿const fs = require("fs");
+const fs = require("fs");
 const esprima = require("esprima"); // ecmascript parser
 const expect = require("expect.js");
 const {
@@ -108,7 +108,7 @@ describe("le programme devrait", () => {
 
   it(`appeler fs.promises.readFile() depuis la fonction lireFichier()`, async () => {
     const définitionDeFonction = trouverDefFonction("lireFichier", await getStudentCode(CODE_FILE));
-    console.log(définitionDeFonction.body.body);
+    // console.log(définitionDeFonction.body.body);
     const appelsReadFile = filterNodesRecur(définitionDeFonction, ({ type, callee }) =>
       type === "CallExpression"
       && callee
