@@ -1,7 +1,7 @@
 ﻿const fs = require("fs");
 const expect = require("expect.js");
 const {
-  printMessage,
+  congratulateStudentIfAllTestsPass,
   getStubFile,
   getStudentCode,
   runStudentCode,
@@ -95,8 +95,5 @@ describe("le programme devrait", () => {
     expect(execution.getExitCode()).to.eql(0);
   });
 
-  it(`respecter toutes les consignes de l'énoncé`, () => {
-    printMessage(`👌 Nickel ! Ton code valide tout ce qui était demandé !`);
-    printMessage(`Peaufine ton code pour le rendre plus intelligible avant de passer à l'exercice suivant.`);
-  })
+  congratulateStudentIfAllTestsPass(global); // also works if bail=false in mocha settings
 });

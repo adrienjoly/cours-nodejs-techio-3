@@ -17,6 +17,20 @@ exports.congratulateStudent = () => {
   exports.printMessage(`3. 📒  puis à garder une copie du code dans tes notes de cours, de manière à les retrouver rapidement quand tu en auras besoin.`);
 };
 
+exports.congratulateStudentIfAllTestsPass = (mochaContext) => {
+  let allTestsPass = true;
+  mochaContext.afterEach(function () {
+    if (this.currentTest.state === "failed") {
+      allTestsPass = false;
+    }
+  });
+  mochaContext.after(() => {
+    if (allTestsPass) {
+      exports.congratulateStudent();
+    }
+  })
+};
+
 exports.getStubFile = (testFile) => './' + testFile.split('/').pop().replace('.spec.js', '.js');
 
 exports.countLines = (sourceCode) => sourceCode.split(/[\r\n]+/).length;

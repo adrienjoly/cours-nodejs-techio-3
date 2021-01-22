@@ -1,13 +1,13 @@
-const fs = require("fs");
+﻿const fs = require("fs");
 const esprima = require("esprima"); // ecmascript parser
 const expect = require("expect.js");
 const {
-  printMessage,
   getStubFile,
   getStudentCode,
   runStudentCode,
   deleteFiles,
   filterNodesRecur,
+  congratulateStudentIfAllTestsPass,
 } = require("./common/techio");
 
 const CODE_FILE = process.env.CODE_FILE || getStubFile(__filename);
@@ -187,10 +187,6 @@ describe("le programme devrait", () => {
     expect(studentCode).not.to.contain(`.then`);
     expect(studentCode).not.to.contain(`.catch`);
   })
-  
-  it(`respecter toutes les consignes de l'énoncé`, () => {
-    printMessage(`👌 Nickel ! Ton code valide tout ce qui était demandé !`);
-    printMessage(`Peaufine ton code pour le rendre plus intelligible avant de passer à l'exercice suivant.`);
-  })
 
+  congratulateStudentIfAllTestsPass(global); // also works if bail=false in mocha settings
 });

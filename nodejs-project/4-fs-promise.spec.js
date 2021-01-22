@@ -1,8 +1,8 @@
-const fs = require("fs");
+﻿const fs = require("fs");
 const esprima = require("esprima"); // ecmascript parser
 const expect = require("expect.js");
 const {
-  printMessage,
+  congratulateStudentIfAllTestsPass,
   getStubFile,
   getStudentCode,
   runStudentCode,
@@ -173,9 +173,6 @@ describe("le programme devrait", () => {
     expect(error).not.to.contain(`Unhandled`);
   })
   
-  it(`respecter toutes les consignes de l'énoncé`, () => {
-    printMessage(`👌 Nickel ! Ton code valide tout ce qui était demandé !`);
-    printMessage(`Peaufine ton code pour le rendre plus intelligible avant de passer à l'exercice suivant.`);
-  })
+  congratulateStudentIfAllTestsPass(global); // also works if bail=false in mocha settings
 
 });
