@@ -8,5 +8,3 @@ Complétez le programme Node.js ci-dessous puis cliquez sur "Run" pour le tester
   "stubs": ["5-fs-await.js"],
   "command": "node_modules/mocha/bin/mocha 5-fs-await.spec.js"
 })
-
-Une fois que tous les tests passent, peaufinez votre code pour le rendre plus intelligible puis réalisez l'exercice suivant.

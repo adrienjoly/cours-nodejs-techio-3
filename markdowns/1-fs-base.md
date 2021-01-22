@@ -8,5 +8,3 @@ Complétez le programme Node.js ci-dessous puis cliquez sur "Run" pour le tester
   "stubs": ["1-fs-base.js"],
   "command": "node_modules/mocha/bin/mocha 1-fs-base.spec.js"
 })
-
-Une fois que tous les tests passent, peaufinez votre code pour le rendre plus intelligible puis réalisez l'exercice suivant.

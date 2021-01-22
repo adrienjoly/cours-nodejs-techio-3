@@ -1,1 +1,2 @@
+- [ ] afficher "sortie standard du programme" dans une section séparée des tests, grâce à printMessage()
 - [ ] faire fonctionner les tests en CI (github actions) => donner accès aux fichiers chiffrés (https://stackoverflow.com/a/61748039/592254)
